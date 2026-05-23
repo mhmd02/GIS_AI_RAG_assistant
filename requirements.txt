@@ -6,3 +6,4 @@ langchain-text-splitters
 langchain-core
 pypdf
 chromadb
+protobuf<4.0.0
