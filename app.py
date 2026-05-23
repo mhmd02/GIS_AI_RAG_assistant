@@ -116,20 +116,20 @@ if uploaded_files and "vectorstore" not in st.session_state:
 # --- Chat Interface ---
 if "vectorstore" in st.session_state:
     
+    # Example Questions
+    example_q = None
+    with st.expander("💡 Quick Document Questions", expanded=not st.session_state.messages):
+        if st.button("What are the main topics covered in this document?", use_container_width=True): example_q = "What are the main topics covered in this document?"
+        if st.button("Summarize the key points of the text.", use_container_width=True): example_q = "Summarize the key points of the text."
+        if st.button("ما هو الملخص العام لهذا المستند؟", use_container_width=True): example_q = "ما هو الملخص العام لهذا المستند؟"
+
     # Show chat history
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
             
-    # Example Questions
-    st.markdown("**💡 Quick GIS Questions:**")
-    example_q = None
-    if st.button("What is ArcGIS?", use_container_width=True): example_q = "What is ArcGIS?"
-    if st.button("Explain Coordinate Reference Systems (CRS)", use_container_width=True): example_q = "Explain Coordinate Reference Systems (CRS)"
-    if st.button("ما هي أهمية الـ Shapefile؟", use_container_width=True): example_q = "ما هي أهمية الـ Shapefile؟"
-    
     # New question
-    user_input = st.chat_input("Ask a question about your GIS documents...")
+    user_input = st.chat_input("Ask a question about your documents...")
     question = example_q or user_input
     
     if question:
