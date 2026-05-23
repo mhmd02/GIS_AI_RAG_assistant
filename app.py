@@ -120,9 +120,20 @@ if "vectorstore" in st.session_state:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
+            
+    # Example Questions
+    st.markdown("**💡 Quick GIS Questions:**")
+    q_cols = st.columns(3)
+    example_q = None
+    if q_cols[0].button("What is ArcGIS?"): example_q = "What is ArcGIS?"
+    if q_cols[1].button("Explain Coordinate Reference Systems (CRS)"): example_q = "Explain Coordinate Reference Systems (CRS)"
+    if q_cols[2].button("ما هي أهمية الـ Shapefile؟"): example_q = "ما هي أهمية الـ Shapefile؟"
     
     # New question
-    if question := st.chat_input("Ask a question about your GIS documents..."):
+    user_input = st.chat_input("Ask a question about your GIS documents...")
+    question = example_q or user_input
+    
+    if question:
         st.session_state.messages.append({"role": "user", "content": question})
         with st.chat_message("user"):
             st.markdown(question)
