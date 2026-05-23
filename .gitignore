@@ -6,10 +6,16 @@ ENV/
 *.pyc
 __pycache__/
 
-# ChromaDB local storage
+# ChromaDB local storage & local data
 task_4_chroma_db/
 chroma_db/
 *.sqlite3
+*.log
+*.tmp
+.ipynb_checkpoints/
+
+# PDF Documents (usually kept local, not in git)
+*.pdf
 
 # API keys and environment variables
 .env
@@ -17,3 +23,4 @@ chroma_db/
 
 # OS specific files
 .DS_Store
+Thumbs.db
