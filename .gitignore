@@ -1,0 +1,19 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+*.pyc
+__pycache__/
+
+# ChromaDB local storage
+task_4_chroma_db/
+chroma_db/
+*.sqlite3
+
+# API keys and environment variables
+.env
+.env_key
+
+# OS specific files
+.DS_Store
