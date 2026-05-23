@@ -123,11 +123,10 @@ if "vectorstore" in st.session_state:
             
     # Example Questions
     st.markdown("**💡 Quick GIS Questions:**")
-    q_cols = st.columns(3)
     example_q = None
-    if q_cols[0].button("What is ArcGIS?"): example_q = "What is ArcGIS?"
-    if q_cols[1].button("Explain Coordinate Reference Systems (CRS)"): example_q = "Explain Coordinate Reference Systems (CRS)"
-    if q_cols[2].button("ما هي أهمية الـ Shapefile؟"): example_q = "ما هي أهمية الـ Shapefile؟"
+    if st.button("What is ArcGIS?", use_container_width=True): example_q = "What is ArcGIS?"
+    if st.button("Explain Coordinate Reference Systems (CRS)", use_container_width=True): example_q = "Explain Coordinate Reference Systems (CRS)"
+    if st.button("ما هي أهمية الـ Shapefile؟", use_container_width=True): example_q = "ما هي أهمية الـ Shapefile؟"
     
     # New question
     user_input = st.chat_input("Ask a question about your GIS documents...")
